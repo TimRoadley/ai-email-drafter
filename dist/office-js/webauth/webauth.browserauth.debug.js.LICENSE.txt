@@ -1,0 +1,633 @@
+/*! exports provided: AADAuthorityConstants, AADServerParamKeys, APP_METADATA, AUTHORITY_METADATA_CONSTANTS, AuthenticationScheme, AuthorityMetadataSource, CLIENT_INFO, CacheAccountType, CacheOutcome, CacheSchemaType, CacheType, ClaimsRequestKeys, CodeChallengeMethodValues, Constants, CredentialType, Errors, GrantType, HeaderNames, OIDC_DEFAULT_SCOPES, OIDC_SCOPES, PasswordGrantConstants, PersistentCacheKeys, PromptValue, RegionDiscoveryOutcomes, RegionDiscoverySources, ResponseCodes, ResponseMode, SERVER_TELEM_CONSTANTS, SSOTypes, Separators, THE_FAMILY_ID, ThrottlingConstants */
+
+/*! exports provided: AccessTokenEntity */
+
+/*! exports provided: AccountEntity */
+
+/*! exports provided: ApiId, BrowserCacheLocation, BrowserConstants, DB_NAME, DB_TABLE_NAME, DB_VERSION, DEFAULT_REQUEST, HTTP_REQUEST_TYPE, InMemoryCacheKeys, InteractionStatus, InteractionType, KEY_FORMAT_JWK, TemporaryCacheKeys, WrapperSKU */
+
+/*! exports provided: AppMetadataEntity */
+
+/*! exports provided: AsyncMemoryStorage */
+
+/*! exports provided: AuthError, AuthErrorMessage */
+
+/*! exports provided: AuthToken */
+
+/*! exports provided: AuthenticationHeaderParser */
+
+/*! exports provided: Authority */
+
+/*! exports provided: AuthorityFactory */
+
+/*! exports provided: AuthorityMetadataEntity */
+
+/*! exports provided: AuthorityType */
+
+/*! exports provided: AuthorizationCodeClient */
+
+/*! exports provided: AuthorizationCodeClient, DeviceCodeClient, RefreshTokenClient, ClientCredentialClient, OnBehalfOfClient, SilentFlowClient, UsernamePasswordClient, DEFAULT_SYSTEM_OPTIONS, AuthToken, IdToken, CcsCredentialType, Authority, AuthorityFactory, AuthorityType, ProtocolMode, CacheManager, DefaultStorageClass, CredentialEntity, AppMetadataEntity, AccountEntity, IdTokenEntity, AccessTokenEntity, RefreshTokenEntity, ServerTelemetryEntity, AuthorityMetadataEntity, ThrottlingEntity, TokenCacheContext, StubbedNetworkModule, NetworkManager, ThrottlingUtils, UrlString, DEFAULT_CRYPTO_IMPLEMENTATION, ScopeSet, AuthenticationHeaderParser, LogLevel, Logger, InteractionRequiredAuthError, InteractionRequiredAuthErrorMessage, AuthError, AuthErrorMessage, ServerError, ClientAuthError, ClientAuthErrorMessage, ClientConfigurationError, ClientConfigurationErrorMessage, AuthenticationScheme, CacheAccountType, CacheSchemaType, CacheType, Constants, CredentialType, OIDC_DEFAULT_SCOPES, PersistentCacheKeys, PromptValue, ResponseMode, StringUtils, ProtocolUtils, TimeUtils, ServerTelemetryManager, PopTokenGenerator, version */
+
+/*! exports provided: Base64Decode */
+
+/*! exports provided: Base64Encode */
+
+/*! exports provided: BaseClient */
+
+/*! exports provided: BaseInteractionClient */
+
+/*! exports provided: BrowserAuthError, BrowserAuthErrorMessage */
+
+/*! exports provided: BrowserCacheManager, DEFAULT_BROWSER_CACHE_MANAGER */
+
+/*! exports provided: BrowserConfigurationAuthError, BrowserConfigurationAuthErrorMessage */
+
+/*! exports provided: BrowserCrypto */
+
+/*! exports provided: BrowserProtocolUtils */
+
+/*! exports provided: BrowserStorage */
+
+/*! exports provided: BrowserStringUtils */
+
+/*! exports provided: BrowserUtils */
+
+/*! exports provided: CacheManager, DefaultStorageClass */
+
+/*! exports provided: CacheRecord */
+
+/*! exports provided: CcsCredentialType */
+
+/*! exports provided: ClientApplication */
+
+/*! exports provided: ClientAuthError, ClientAuthErrorMessage */
+
+/*! exports provided: ClientConfigurationError, ClientConfigurationErrorMessage */
+
+/*! exports provided: ClientCredentialClient */
+
+/*! exports provided: CredentialEntity */
+
+/*! exports provided: CryptoOps */
+
+/*! exports provided: DEFAULT_CRYPTO_IMPLEMENTATION */
+
+/*! exports provided: DEFAULT_IFRAME_TIMEOUT_MS, DEFAULT_POPUP_TIMEOUT_MS, DEFAULT_REDIRECT_TIMEOUT_MS, buildConfiguration */
+
+/*! exports provided: DEFAULT_SYSTEM_OPTIONS, buildClientConfiguration */
+
+/*! exports provided: DatabaseStorage */
+
+/*! exports provided: DeviceCodeClient */
+
+/*! exports provided: EventHandler */
+
+/*! exports provided: EventMessageUtils */
+
+/*! exports provided: EventType */
+
+/*! exports provided: FetchClient */
+
+/*! exports provided: GuidGenerator */
+
+/*! exports provided: IdTokenEntity */
+
+/*! exports provided: InteractionHandler */
+
+/*! exports provided: InteractionRequiredAuthError, InteractionRequiredAuthErrorMessage, InteractionRequiredAuthSubErrorMessage, InteractionRequiredServerErrorMessage */
+
+/*! exports provided: LogLevel, Logger */
+
+/*! exports provided: MathUtils */
+
+/*! exports provided: MemoryStorage */
+
+/*! exports provided: NavigationClient */
+
+/*! exports provided: NetworkManager */
+
+/*! exports provided: OnBehalfOfClient */
+
+/*! exports provided: PkceGenerator */
+
+/*! exports provided: PopTokenGenerator */
+
+/*! exports provided: PopupClient */
+
+/*! exports provided: PopupHandler */
+
+/*! exports provided: PopupUtils */
+
+/*! exports provided: ProtocolMode */
+
+/*! exports provided: ProtocolUtils */
+
+/*! exports provided: PublicClientApplication */
+
+/*! exports provided: PublicClientApplication, ApiId, BrowserCacheLocation, InteractionStatus, InteractionType, WrapperSKU, BrowserUtils, BrowserAuthError, BrowserAuthErrorMessage, BrowserConfigurationAuthError, BrowserConfigurationAuthErrorMessage, stubbedPublicClientApplication, NavigationClient, EventMessageUtils, EventType, SignedHttpRequest, AccountEntity, AuthError, AuthErrorMessage, AuthenticationHeaderParser, AuthenticationScheme, ClientAuthError, ClientAuthErrorMessage, ClientConfigurationError, ClientConfigurationErrorMessage, InteractionRequiredAuthError, InteractionRequiredAuthErrorMessage, LogLevel, Logger, ProtocolMode, ServerError, StringUtils, UrlString, version */
+
+/*! exports provided: RedirectClient */
+
+/*! exports provided: RedirectHandler */
+
+/*! exports provided: RefreshTokenClient */
+
+/*! exports provided: RefreshTokenEntity */
+
+/*! exports provided: RegionDiscovery */
+
+/*! exports provided: RequestParameterBuilder */
+
+/*! exports provided: RequestValidator */
+
+/*! exports provided: ResponseHandler */
+
+/*! exports provided: ScopeSet */
+
+/*! exports provided: ServerError */
+
+/*! exports provided: ServerTelemetryEntity */
+
+/*! exports provided: ServerTelemetryManager */
+
+/*! exports provided: SignedHttpRequest */
+
+/*! exports provided: SilentCacheClient */
+
+/*! exports provided: SilentFlowClient */
+
+/*! exports provided: SilentHandler */
+
+/*! exports provided: SilentIframeClient */
+
+/*! exports provided: SilentRefreshClient */
+
+/*! exports provided: StandardInteractionClient */
+
+/*! exports provided: StringUtils */
+
+/*! exports provided: StubbedNetworkModule */
+
+/*! exports provided: ThrottlingEntity */
+
+/*! exports provided: ThrottlingUtils */
+
+/*! exports provided: TimeUtils */
+
+/*! exports provided: TokenCache */
+
+/*! exports provided: TokenCacheContext */
+
+/*! exports provided: UrlString */
+
+/*! exports provided: UsernamePasswordClient */
+
+/*! exports provided: XhrClient */
+
+/*! exports provided: __assign, __awaiter, __extends, __generator, __read, __spread */
+
+/*! exports provided: __assign, __awaiter, __extends, __generator, __spreadArrays */
+
+/*! exports provided: buildClientInfo, buildClientInfoFromHomeAccountId */
+
+/*! exports provided: isCloudInstanceDiscoveryResponse */
+
+/*! exports provided: isOpenIdConfigResponse */
+
+/*! exports provided: name, version */
+
+/*! exports provided: stubbedPublicClientApplication */
+
+/*! no static exports found */
+
+/*!*******************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/index.js ***!
+  \*******************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/index.js ***!
+  \********************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/logger/Logger.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/url/UrlString.js ***!
+  \***************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/crypto/ICrypto.js ***!
+  \****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/_virtual/_tslib.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/error/AuthError.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/packageMetadata.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/utils/Constants.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/utils/TimeUtils.js ***!
+  \*****************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/_virtual/_tslib.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/event/EventType.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/packageMetadata.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/utils/MathUtils.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/request/ScopeSet.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./packages/Microsoft.Office.WebAuth.BrowserAuth/lib/api.js ***!
+  \******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/cache/TokenCache.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/crypto/CryptoOps.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/utils/PopupUtils.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/account/AuthToken.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/client/BaseClient.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/error/ServerError.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/utils/StringUtils.js ***!
+  \*******************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/network/XhrClient.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/account/ClientInfo.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/CacheManager.js ***!
+  \********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/event/EventHandler.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/event/EventMessage.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/utils/BrowserUtils.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/authority/Authority.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/utils/ProtocolUtils.js ***!
+  \*********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/cache/MemoryStorage.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/encode/Base64Decode.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/encode/Base64Encode.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/network/FetchClient.js ***!
+  \**********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/cache/BrowserStorage.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/config/Configuration.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/crypto/BrowserCrypto.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/crypto/GuidGenerator.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/crypto/PkceGenerator.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/account/CcsCredential.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/error/ClientAuthError.js ***!
+  \***********************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/app/ClientApplication.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/cache/DatabaseStorage.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/authority/ProtocolMode.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/network/INetworkModule.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/network/NetworkManager.js ***!
+  \************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/error/BrowserAuthError.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/utils/BrowserConstants.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/authority/AuthorityType.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/client/DeviceCodeClient.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/client/OnBehalfOfClient.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/client/SilentFlowClient.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/network/ThrottlingUtils.js ***!
+  \*************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/crypto/PopTokenGenerator.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/request/RequestValidator.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/response/ResponseHandler.js ***!
+  \**************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/cache/AsyncMemoryStorage.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/crypto/SignedHttpRequest.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/utils/BrowserStringUtils.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/authority/RegionDiscovery.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/client/RefreshTokenClient.js ***!
+  \***************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/cache/BrowserCacheManager.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/authority/AuthorityFactory.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/CacheRecord.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/config/ClientConfiguration.js ***!
+  \****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/utils/BrowserProtocolUtils.js ***!
+  \*****************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/app/PublicClientApplication.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/navigation/NavigationClient.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/AccountEntity.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/IdTokenEntity.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./packages/Microsoft.Office.WebAuth.BrowserAuth/scripts/BrowserAuth.ts ***!
+  \******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/app/IPublicClientApplication.js ***!
+  \*******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/client/ClientCredentialClient.js ***!
+  \*******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/client/UsernamePasswordClient.js ***!
+  \*******************************************************************************/
+
+/*!********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/authority/OpenIdConfigResponse.js ***!
+  \********************************************************************************/
+
+/*!********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/client/AuthorizationCodeClient.js ***!
+  \********************************************************************************/
+
+/*!********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/error/ClientConfigurationError.js ***!
+  \********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_client/PopupClient.js ***!
+  \*********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/CredentialEntity.js ***!
+  \*********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/ThrottlingEntity.js ***!
+  \*********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/request/RequestParameterBuilder.js ***!
+  \*********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/AccessTokenEntity.js ***!
+  \**********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/AppMetadataEntity.js ***!
+  \**********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./packages/Microsoft.Office.WebAuth.BrowserAuth/scripts/Utils/Constants.ts ***!
+  \**********************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_handler/PopupHandler.js ***!
+  \***********************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/RefreshTokenEntity.js ***!
+  \***********************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** ./packages/Microsoft.Office.WebAuth.BrowserAuth/scripts/Utils/TimerUtils.ts ***!
+  \***********************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_client/RedirectClient.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_handler/SilentHandler.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/error/InteractionRequiredAuthError.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/request/AuthenticationHeaderParser.js ***!
+  \************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/persistence/TokenCacheContext.js ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./packages/Microsoft.Office.WebAuth.BrowserAuth/scripts/Utils/ExtractUtils.ts ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./packages/Microsoft.Office.WebAuth.BrowserAuth/scripts/Utils/LoggingUtils.ts ***!
+  \*************************************************************************************/
+
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/error/BrowserConfigurationAuthError.js ***!
+  \**************************************************************************************/
+
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_handler/RedirectHandler.js ***!
+  \**************************************************************************************/
+
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/ServerTelemetryEntity.js ***!
+  \**************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_client/SilentCacheClient.js ***!
+  \***************************************************************************************/
+
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_client/SilentIframeClient.js ***!
+  \****************************************************************************************/
+
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/cache/entities/AuthorityMetadataEntity.js ***!
+  \****************************************************************************************/
+
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_client/SilentRefreshClient.js ***!
+  \*****************************************************************************************/
+
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_handler/InteractionHandler.js ***!
+  \*****************************************************************************************/
+
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/telemetry/server/ServerTelemetryManager.js ***!
+  \*****************************************************************************************/
+
+/*!******************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-common/dist/authority/CloudInstanceDiscoveryResponse.js ***!
+  \******************************************************************************************/
+
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_client/BaseInteractionClient.js ***!
+  \*******************************************************************************************/
+
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/@azure/msal-browser/dist/interaction_client/StandardInteractionClient.js ***!
+  \***********************************************************************************************/
+
+/*!***********************************************************************************************************************************************!*\
+  !*** multi ./packages/Microsoft.Office.WebAuth.BrowserAuth/lib/api.js ./packages/Microsoft.Office.WebAuth.BrowserAuth/scripts/BrowserAuth.ts ***!
+  \***********************************************************************************************************************************************/
