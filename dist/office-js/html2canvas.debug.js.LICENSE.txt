@@ -1,6 +1,0 @@
-/*!
-  html2canvas  <http://html2canvas.hertzen.com>
-  Copyright (c) 2016 Niklas von Hertzen
-*/
-
-/*! Copyright Mathias Bynens <https://mathiasbynens.be/> */
