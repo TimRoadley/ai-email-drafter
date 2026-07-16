@@ -92,7 +92,7 @@
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="AI Draft"/>
           <bt:String id="DraftWithAiButton.Label" DefaultValue="Draft with AI"/>
-          <bt:String id="RewriteForClarityButton.Label" DefaultValue="Rewrite for Clarity"/>
+          <bt:String id="RewriteForClarityButton.Label" DefaultValue="Improve Writing"/>
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="DraftWithAiButton.Tooltip" DefaultValue="Opens the Draft with AI task pane."/>

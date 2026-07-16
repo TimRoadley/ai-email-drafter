@@ -45,7 +45,7 @@ async function rewriteForClarity(
         type: Office.MailboxEnums.ItemNotificationMessageType
           .InformationalMessage,
         message:
-          "Select text in the email body first, then click Rewrite for Clarity.",
+          "Select text in the email body first, then click Improve Writing.",
         icon: "Icon.80x80",
         persistent: false,
       });
