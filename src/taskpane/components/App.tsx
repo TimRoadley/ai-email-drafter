@@ -32,6 +32,7 @@ import {
   saveBaseUrl,
   getSignature,
   saveSignature,
+  getSelectedModel,
   saveSelectedModel,
   getThinkingEnabled,
   saveThinkingEnabled,
@@ -183,7 +184,9 @@ const App: React.FC = () => {
   const [baseUrl, setBaseUrl] = useState<string>(() =>
     migrateUrl(getBaseUrl()),
   );
-  const [selectedModel, setSelectedModel] = useState<string>("");
+  const [selectedModel, setSelectedModel] = useState<string>(
+    () => getSelectedModel() ?? "",
+  );
   const [status, setStatus] = useState<AiStatus | null>(null);
   const [isCheckingStatus, setIsCheckingStatus] = useState<boolean>(false);
   const [showSettings, setShowSettings] = useState<boolean>(false);
