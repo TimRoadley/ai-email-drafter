@@ -6,7 +6,7 @@ Thanks for helping improve this project. This guide covers dev setup, local debu
 
 - macOS 13+
 - Node.js 18+
-- Outlook for Mac
+- Outlook
 - Access to an OpenAI-compatible LLM endpoint for testing
 
 ## Setup
