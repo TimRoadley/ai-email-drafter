@@ -55,7 +55,7 @@
             "id": "TaskPaneRuntime",
             "type": "general",
             "code": {
-              "page": "https://timroadley.github.io/ai-email-drafter/dist/taskpane.html"
+              "page": "https://timroadley.github.io/ai-email-drafter/taskpane.html"
             },
             "lifetime": "short",
             "actions": [
@@ -71,8 +71,8 @@
             "id": "CommandsRuntime",
             "type": "general",
             "code": {
-              "page": "https://timroadley.github.io/ai-email-drafter/dist/commands.html",
-              "script": "https://timroadley.github.io/ai-email-drafter/dist/commands.js"
+              "page": "https://timroadley.github.io/ai-email-drafter/commands.html",
+              "script": "https://timroadley.github.io/ai-email-drafter/commands.js"
             },
             "lifetime": "short",
             "actions": [
@@ -96,9 +96,9 @@
                     "id": "msgComposeGroup",
                     "label": "AI Draft",
                     "icons": [
-                      { "size": 16, "url": "https://timroadley.github.io/ai-email-drafter/dist/assets/icon-16.png" },
-                      { "size": 32, "url": "https://timroadley.github.io/ai-email-drafter/dist/assets/icon-32.png" },
-                      { "size": 80, "url": "https://timroadley.github.io/ai-email-drafter/dist/assets/icon-80.png" }
+                      { "size": 16, "url": "https://timroadley.github.io/ai-email-drafter/assets/icon-16.png" },
+                      { "size": 32, "url": "https://timroadley.github.io/ai-email-drafter/assets/icon-32.png" },
+                      { "size": 80, "url": "https://timroadley.github.io/ai-email-drafter/assets/icon-80.png" }
                     ],
                     "controls": [
                       {
@@ -106,9 +106,9 @@
                         "type": "button",
                         "label": "Draft with AI",
                         "icons": [
-                          { "size": 16, "url": "https://timroadley.github.io/ai-email-drafter/dist/assets/icon-16.png" },
-                          { "size": 32, "url": "https://timroadley.github.io/ai-email-drafter/dist/assets/icon-32.png" },
-                          { "size": 80, "url": "https://timroadley.github.io/ai-email-drafter/dist/assets/icon-80.png" }
+                          { "size": 16, "url": "https://timroadley.github.io/ai-email-drafter/assets/icon-16.png" },
+                          { "size": 32, "url": "https://timroadley.github.io/ai-email-drafter/assets/icon-32.png" },
+                          { "size": 80, "url": "https://timroadley.github.io/ai-email-drafter/assets/icon-80.png" }
                         ],
                         "supertip": {
                           "title": "Draft with AI",
