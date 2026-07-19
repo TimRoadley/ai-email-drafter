@@ -1,10 +1,6 @@
-/* global Office console */
+/* global Office console URL window */
 
-import {
-  checkAiStatus,
-  rewriteTextForClarity,
-  DEFAULT_BASE_URL,
-} from "../taskpane/ai-service";
+import { checkAiStatus, DEFAULT_BASE_URL } from "../taskpane/ai-service";
 import {
   getBaseUrl,
   getSelectedModel,
@@ -14,6 +10,19 @@ import {
 Office.onReady(() => {
   Office.actions.associate("rewriteForClarity", rewriteForClarity);
 });
+
+interface DialogInitPayload {
+  selectedText: string;
+  baseUrl: string;
+  apiKey?: string;
+  models: string[];
+  selectedModel: string;
+}
+
+interface DialogOutgoingMessage {
+  type: "ready" | "accept" | "cancel";
+  text?: string;
+}
 
 async function rewriteForClarity(
   event: Office.AddinCommands.Event,
@@ -70,41 +79,117 @@ async function rewriteForClarity(
     }
 
     let model = getSelectedModel();
+    let models: string[] = model ? [model] : [];
 
-    if (!model) {
-      const status = await checkAiStatus(baseUrl, apiKey);
-      if (!status.online || status.models.length === 0) {
-        item.notificationMessages.addAsync("rewrite-error", {
-          type: Office.MailboxEnums.ItemNotificationMessageType
-            .InformationalMessage,
-          message:
-            "AI is offline. Check the Base URL and API key in the add-in settings.",
-          icon: "Icon.80x80",
-          persistent: false,
-        });
-        event.completed();
-        return;
-      }
-      model = status.models[0];
+    const status = await checkAiStatus(baseUrl, apiKey);
+    if (!status.online || status.models.length === 0) {
+      item.notificationMessages.addAsync("rewrite-error", {
+        type: Office.MailboxEnums.ItemNotificationMessageType
+          .InformationalMessage,
+        message:
+          "AI is offline. Check the Base URL and API key in the add-in settings.",
+        icon: "Icon.80x80",
+        persistent: false,
+      });
+      event.completed();
+      return;
+    }
+    models = status.models;
+    if (!model || !models.includes(model)) {
+      model = models[0];
     }
 
-    const rewritten = await rewriteTextForClarity(
-      baseUrl,
-      model,
+    const initPayload: DialogInitPayload = {
       selectedText,
+      baseUrl,
       apiKey,
-    );
+      models,
+      selectedModel: model,
+    };
 
-    await new Promise<void>((resolve, reject) => {
-      item.body.setSelectedDataAsync(
-        rewritten,
-        { coercionType: Office.CoercionType.Text },
-        (result: Office.AsyncResult<void>) => {
-          if (result.status === Office.AsyncResultStatus.Failed) {
-            reject(new Error(result.error.message));
-          } else {
+    const dialogUrl = new URL(
+      "improve-dialog.html",
+      window.location.href,
+    ).toString();
+
+    await new Promise<void>((resolve) => {
+      Office.context.ui.displayDialogAsync(
+        dialogUrl,
+        { height: 60, width: 40, displayInIframe: true },
+        (asyncResult: Office.AsyncResult<Office.Dialog>) => {
+          if (asyncResult.status === Office.AsyncResultStatus.Failed) {
+            item.notificationMessages.addAsync("rewrite-error", {
+              type: Office.MailboxEnums.ItemNotificationMessageType
+                .InformationalMessage,
+              message: `Can't open rewrite dialog: ${asyncResult.error.message}`,
+              icon: "Icon.80x80",
+              persistent: false,
+            });
             resolve();
+            return;
           }
+
+          const dialog = asyncResult.value;
+
+          const closeDialog = () => {
+            try {
+              dialog.close();
+            } catch {
+              // dialog may already be closed
+            }
+            resolve();
+          };
+
+          dialog.addEventHandler(
+            Office.EventType.DialogMessageReceived,
+            (arg: any) => {
+              let message: DialogOutgoingMessage;
+              try {
+                message = JSON.parse(arg.message);
+              } catch {
+                return;
+              }
+
+              if (message.type === "ready") {
+                dialog.messageChild(JSON.stringify(initPayload));
+                return;
+              }
+
+              if (message.type === "accept") {
+                const rewritten = message.text ?? "";
+                item.body.setSelectedDataAsync(
+                  rewritten,
+                  { coercionType: Office.CoercionType.Text },
+                  (result: Office.AsyncResult<void>) => {
+                    if (result.status === Office.AsyncResultStatus.Failed) {
+                      console.error(
+                        "Failed to insert rewritten text:",
+                        result.error.message,
+                      );
+                      item.notificationMessages.addAsync("rewrite-error", {
+                        type: Office.MailboxEnums.ItemNotificationMessageType
+                          .InformationalMessage,
+                        message: `Can't rewrite: ${result.error.message}`,
+                        icon: "Icon.80x80",
+                        persistent: false,
+                      });
+                    }
+                    closeDialog();
+                  },
+                );
+                return;
+              }
+
+              if (message.type === "cancel") {
+                closeDialog();
+              }
+            },
+          );
+
+          dialog.addEventHandler(Office.EventType.DialogEventReceived, () => {
+            // Dialog was closed by the user (e.g. clicked the X).
+            resolve();
+          });
         },
       );
     });

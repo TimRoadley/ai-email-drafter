@@ -88,6 +88,7 @@
         <bt:Urls>
           <bt:Url id="Commands.Url" DefaultValue="https://timroadley.github.io/ai-email-drafter/commands.html"/>
           <bt:Url id="Taskpane.Url" DefaultValue="https://timroadley.github.io/ai-email-drafter/taskpane.html"/>
+          <bt:Url id="ImproveDialog.Url" DefaultValue="https://timroadley.github.io/ai-email-drafter/improve-dialog.html"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="AI Draft"/>

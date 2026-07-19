@@ -20,6 +20,39 @@ function buildHeaders(apiKey?: string): Record<string, string> {
   return headers;
 }
 
+/**
+ * Extracts the assistant's reply text from a chat/completions response body.
+ *
+ * Some OpenAI-compatible servers/models don't return a plain string for
+ * `choices[0].message.content` — reasoning-only models may leave it `null`
+ * (with the real text elsewhere), and some servers return an array of
+ * content parts (e.g. `[{ type: "text", text: "..." }]`) instead of a
+ * string. Passing a non-string straight into Office.js APIs like
+ * `setSelectedDataAsync` throws a confusing `Sys.ArgumentTypeException`, so
+ * normalize here and fail with a clear error instead.
+ */
+function extractMessageContent(data: any): string {
+  const content = data?.choices?.[0]?.message?.content;
+
+  if (typeof content === "string" && content.length > 0) {
+    return content;
+  }
+
+  if (Array.isArray(content)) {
+    const text = content
+      .filter((part: any) => typeof part?.text === "string")
+      .map((part: any) => part.text)
+      .join("");
+    if (text) {
+      return text;
+    }
+  }
+
+  throw new Error(
+    "The model returned no usable text content. Try a different model or check the endpoint's response format.",
+  );
+}
+
 export async function checkAiStatus(
   baseUrl: string = DEFAULT_BASE_URL,
   apiKey?: string,
@@ -87,7 +120,7 @@ export async function generateReply(
   }
 
   const data = await response.json();
-  return data.choices[0].message.content;
+  return extractMessageContent(data);
 }
 
 export async function rewriteTextForClarity(
@@ -123,5 +156,5 @@ export async function rewriteTextForClarity(
   }
 
   const data = await response.json();
-  return data.choices[0].message.content;
+  return extractMessageContent(data);
 }
