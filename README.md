@@ -38,4 +38,4 @@ Outlook → Preferences → Extensions → My Add-ins → remove the entry.
 
 ## Contributing
 
-Want to work on the code? See [CONTRIBUTE.md](CONTRIBUTE.md).
+Want to contribute? See [CONTRIBUTE.md](CONTRIBUTE.md).
