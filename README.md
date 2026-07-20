@@ -37,5 +37,4 @@ Settings are saved per-user in Outlook roaming settings.
 Outlook → Preferences → Extensions → My Add-ins → remove the entry.
 
 ## Contributing
-
-Want to contribute? See [CONTRIBUTE.md](CONTRIBUTE.md).
+See [CONTRIBUTE.md](CONTRIBUTE.md)
