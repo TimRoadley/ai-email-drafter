@@ -65,7 +65,7 @@ export async function checkAiStatus(
       throw new Error(`Server returned ${response.status}`);
     }
     const data = await response.json();
-    const models = data.data?.map((m: any) => m.id) || [];
+    const models = (data.data?.map((m: any) => m.id) || []).sort();
     return { online: true, models };
   } catch (error: any) {
     return { online: false, models: [], error: error.message };
